@@ -32,4 +32,16 @@ properties of the unit impulse function that can be proved from the definition  
   2.3.3 Trigonometric Form of the Fourier Series
   
 2.4 THE FOURIER TRANSFORM
-2.4.1 Amplitude and Phase Spectra
+2.4.1 Amplitude and Phase Spectra: 𝑋(𝑓) = |𝑋(𝑓)|𝑒𝑗𝜃(𝑓), 𝜃(𝑓) = ⟋𝑋(𝑓)
+      𝑅 = Re 𝑋(𝑓) = ∫ 𝑥(𝑡) cos (2𝜋𝑓𝑡) 𝑑𝑡
+      𝐼 = Im𝑋(𝑓) = −∫𝑥(𝑡)sin(2𝜋𝑓𝑡)𝑑𝑡
+      |𝑋(𝑓)|2 =𝑅2 +𝐼2 and tan𝜃(𝑓)=𝐼∕𝑅
+2.4.2 Symmetry Properties:𝑥(𝑡) = 𝑥(−𝑡), that is, if 𝑥(𝑡) is even, then 𝑥(𝑡)sin(2𝜋𝑓𝑡) is odd in (2.66) and Im 𝑋(𝑓) = 0. Furthermore, Re 𝑋(𝑓) is an even function of 𝑓 because cosine is an even function. Thus, the Fourier transform of a real, even function is real and even.
+2.4.3 Energy Spectral Density: 
+      E = ∫ 𝑋(𝑓)𝑋∗ (𝑓) 𝑑𝑓
+      |𝑋(𝑓)|2 has the units of energy density, 𝐺(𝑓 ) ≜ |𝑋(𝑓 )|2
+2.4.4 Convolution: 𝑥(𝑡) = 𝑥1(𝑡) ∗ 𝑥2 (𝑡) = ∫ 𝑥1(𝜆)𝑥2(𝑡 − 𝜆) 𝑑𝜆
+
+
+
+
