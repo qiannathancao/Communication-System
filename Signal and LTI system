@@ -1,0 +1,35 @@
+The study of information transmission systems is inherently concerned with the transmission of signals through systems. Recall that in Chapter 1 a signal was defined as the time history of some quantity, usually a voltage or current. A system is a combination of devices and net- works (subsystems) chosen to perform a desired function. Because of the sophistication of modern communication systems, a great deal of analysis and experimentation with trial subsystems oc- curs before actual building of the desired system. Thus, the communications engineer’s tools are mathematical models for signals and systems.
+In this chapter, we review techniques useful for modeling and analysis of signals and sys- tems used in communications engineering.1 Of primary concern will be the dual time-frequency viewpoint for signal representation, and models for linear, time-invariant, two-port systems. It is important to always keep in mind that a model is not the signal or the system, but a mathematical idealization of certain characteristics of it that are most relevant to the problem at hand.
+With this brief introduction, we now consider signal classifications and various methods for modeling signals and systems. These include frequency-domain representations for signals via the complex exponential Fourier series and the Fourier transform, followed by linear system models and techniques for analyzing the effects of such systems on signals.
+
+2.1 SIGNAL MODELS
+
+2.1.1 Deterministic and Random Signals
+  𝑥(𝑡) = 𝐴cos(𝜔0𝑡), −∞ < 𝑡 < ∞
+  Π(𝑡) = 1, |𝑡| ≤ 2 (2.2) , = 0, otherwise
+  
+2.1.2 Periodic and Aperiodic Signals
+  𝑥(𝑡+𝑇0)=𝑥(𝑡), −∞<𝑡<∞
+  
+2.1.3 Phasor Signals and Spectra
+  𝑥̃(𝑡) = 𝐴𝑒𝑗(𝜔0𝑡+𝜃), −∞ < 𝑡 < ∞
+  𝑥(𝑡)=𝐴cos(𝜔0𝑡+𝜃)= Re𝑥̃(𝑡) = Re𝐴𝑒𝑗(𝜔0𝑡+𝜃)
+  𝐴 c o s ( 𝜔 0 𝑡 + 𝜃 ) = 1/2 𝑥̃ ( 𝑡 ) + 1/2 𝑥̃ ∗ ( 𝑡 ) = 1/2𝐴𝑒𝑗(𝜔0𝑡+𝜃) + 1/2𝐴𝑒−𝑗(𝜔0𝑡+𝜃)
+  
+2.1.4 Singularity Functions
+  ∫ 𝑥(𝑡) 𝛿(𝑡) 𝑑𝑡 = 𝑥(0)
+  ∫ 𝑥(𝑡) 𝛿(𝑡 − 𝑡0) 𝑑𝑡 = 𝑥(𝑡0)
+  ∫ 𝛿(𝑡−𝑡0)𝑑𝑡=1, 𝑡1 <𝑡0 <𝑡2, 𝛿(𝑡−𝑡0)=0, 𝑡≠𝑡0
+  
+properties of the unit impulse function that can be proved from the definition   ∫ 𝑥(𝑡) 𝛿(𝑡) 𝑑𝑡 = 𝑥(0)
+
+2.2 SIGNAL CLASSIFICATIONS
+  Total energy and the average power on a per-ohm basis are obtained as the limits
+
+2.3 FOURIER SERIES
+  2.3.1 Complex Exponential Fourier Series
+  2.3.2 Symmetry Properties of the Fourier Coefficients
+  2.3.3 Trigonometric Form of the Fourier Series
+  
+2.4 THE FOURIER TRANSFORM
+2.4.1 Amplitude and Phase Spectra
