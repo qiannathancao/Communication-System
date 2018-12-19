@@ -1,5 +1,63 @@
 LINEAR MODULATION TECHNIQUES
 
-The two basic types of analog modulation are continuous-wave modulation and pulse modu- lation. In continuous-wave modulation, which is the main focus of this chapter, a parameter of a high-frequency carrier is varied proportionally to the message signal such that a one-to-one corre- spondence exists between the parameter and the message signal. The carrier is usually assumed to be sinusoidal, but as will be illustrated, this is not a necessary restriction. However, for a sinusoidal carrier, a general modulated carrier can be represented mathematically as
+The two basic types of analog modulation are continuous-wave modulation and pulse modu- lation. 
+In continuous-wave modulation, which is the main focus of this chapter, a parameter of a high-frequency carrier is varied proportionally to the message signal such that a one-to-one corre- spondence exists between the parameter and the message signal. 
+The carrier is usually assumed to be sinusoidal, but as will be illustrated, this is not a necessary restriction. 
+However, for a sinusoidal carrier, a general modulated carrier can be represented mathematically as
 𝒙𝒄 (𝒕) = 𝑨(𝒕) 𝐜𝐨𝐬[𝟐𝝅𝒇𝒄 𝒕 + 𝝓(𝒕)] (3.1)
-where 𝒇𝒄 is the carrier frequency. Since a sinusoid is completely specified by its amplitude, 𝑨(𝒕), and instantaneous phase, 𝟐𝝅𝒇𝒄 + 𝝓(𝒕), it follows that once the carrier frequency, 𝒇𝒄 , is specified, only two parameters are candidates to be varied in the modulation process: the instantaneous amplitude 𝑨(𝒕) and the phase deviation 𝝓(𝒕). When the amplitude 𝑨(𝒕) is linearly related to the modulating signal, the result is linear modulation. Letting 𝝓(𝒕) or the time derivative of 𝝓(𝒕) be linearly related to the modulating signal yields phase or frequency modulation, respectively. Collectively, phase and frequency modulation are referred to as angle modulation, since the instantaneous phase angle of the modulated carrier conveys the information.
+
+where 𝒇𝒄 is the carrier frequency. 
+Since a sinusoid is completely specified by its amplitude, 𝑨(𝒕), and instantaneous phase, 𝟐𝝅𝒇𝒄 + 𝝓(𝒕), 
+it follows that once the carrier frequency, 𝒇𝒄 , is specified, 
+only two parameters are candidates to be varied in the modulation process: 
+  the instantaneous amplitude 𝑨(𝒕) 
+  and the phase deviation 𝝓(𝒕). 
+When the amplitude 𝑨(𝒕) is linearly related to the modulating signal, the result is linear modulation. 
+Letting 𝝓(𝒕) or the time derivative of 𝝓(𝒕) be linearly related to the modulating signal yields phase or frequency modulation, respectively. 
+Collectively, phase and frequency modulation are referred to as angle modulation, since the instantaneous phase angle of the modulated carrier conveys the information.
+
+
+3.1 DOUBLE-SIDEBAND MODULATION
+a linearly modulated carrier is represented by
+  𝑥𝑐 (𝑡) = 𝐴(𝑡) cos(2𝜋𝑓𝑐 𝑡)
+
+Double-sideband (DSB) modulation results when 𝐴(𝑡) is proportional to the message signal 𝑚(𝑡). 
+Thus, the output of a DSB modulator can be represented as
+  𝑥𝑐 (𝑡) = 𝐴𝑐 𝑚(𝑡) cos(2𝜋𝑓𝑐 𝑡)
+  𝑋𝑐(𝑓) = 1𝐴𝑐𝑀(𝑓 + 𝑓𝑐) + 1𝐴𝑐𝑀(𝑓 − 𝑓𝑐)
+  
+  2cos(𝑥)cos(𝑦) = cos(𝑥+𝑦)+cos(𝑥−𝑦)
+  => 𝑑 ( 𝑡 ) = 𝐴 𝑐 𝑚 ( 𝑡 ) c o s 𝜃 ( 𝑡 ) + 𝐴 𝑐 𝑚 ( 𝑡 ) c o s [ 4 𝜋 𝑓𝑐 𝑡 + 𝜃 ( 𝑡 ) ]
+  => 𝑦𝐷(𝑡) = 𝑚(𝑡) cos 𝜃(𝑡)
+  
+  𝑥2𝑟(𝑡) = 𝐴2𝑐𝑚2(𝑡)cos2(2𝜋𝑓𝑐𝑡)
+
+
+3.2 AMPLITUDE MODULATION (AM)
+  𝑥 𝑐 ( 𝑡 ) = 𝐴 𝑐 [ 1 + 𝑎 𝑚 𝑛 ( 𝑡 ) ] c o s ( 2 𝜋 𝑓𝑐 𝑡 )
+  𝑚𝑛(𝑡) = 𝑚(𝑡) / |min[𝑚(𝑡)]|
+  
+3.2.1 Envelope Detection
+  𝐸𝑓𝑓 = 𝑎2⟨𝑚2𝑛(𝑡)⟩ / [1 + 𝑎2⟨𝑚2𝑛(𝑡)⟩]
+  
+3.2.2 The Modulation Trapezoid
+  
+3.3 SINGLE-SIDEBAND (SSB) MODULATION
+  𝑦𝐷(𝑡) = 𝑚(𝑡) cos 𝜃(𝑡) ∓ 𝑚̂(𝑡) sin 𝜃(𝑡)
+  
+
+3.5 FREQUENCY TRANSLATION AND MIXING
+  𝑒(𝑡) = 𝑚(𝑡) cos(2𝜋𝑓2𝑡) + 𝑚(𝑡) cos(4𝜋𝑓1 ± 2𝜋𝑓2)𝑡
+  𝑓LO = 𝑓𝑐 + 𝑓IF
+  
+3.6 INTERFERENCE IN LINEAR MODULATION
+  𝑥𝑐(𝑡) = 𝐴𝑐 cos(2𝜋𝑓𝑐𝑡) + 𝐴𝑖 cos[2𝜋(𝑓𝑐 + 𝑓𝑖)𝑡] + 𝐴𝑚 cos(2𝜋𝑓𝑚𝑡) cos(2𝜋𝑓𝑐𝑡)
+  𝑦𝐷(𝑡) = 𝐴𝑚 cos(2𝜋𝑓𝑚𝑡) + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)
+  
+  𝑥𝑟(𝑡) = 𝐴𝑐 cos(2𝜋𝑓𝑐𝑡) + 𝐴𝑚 cos(2𝜋𝑓𝑚𝑡) cos(2𝜋𝑓𝑐𝑡)+𝐴𝑖[cos(2𝜋𝑓𝑐𝑡) cos(2𝜋𝑓𝑖𝑡) − sin(2𝜋𝑓𝑐𝑡) sin(2𝜋𝑓𝑖𝑡)]
+=>𝑥𝑟(𝑡) = [𝐴𝑐 + 𝐴𝑚 cos(2𝜋𝑓𝑐𝑡) + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)] cos(2𝜋𝑓𝑐𝑡) − 𝐴𝑖 sin(2𝜋𝑓𝑖𝑡) sin(2𝜋𝑓𝑐𝑡)
+  𝑦𝐷(𝑡) ≅ 𝐴𝑚 cos(2𝜋𝑓𝑚𝑡) + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)
+  𝑦𝐷(𝑡) ≅ 𝐴𝑐 cos(2𝜋𝑓𝑖𝑡) + 𝐴𝑚 cos(2𝜋𝑓𝑚𝑡) cos(2𝜋𝑓𝑖𝑡)
+  
+
+
