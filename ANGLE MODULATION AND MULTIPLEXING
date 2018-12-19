@@ -1,0 +1,126 @@
+ANGLE MODULATION AND MULTIPLEXING
+In the previous chapter, we considered analog linear modulation. We now consider angle modu- lation. 
+To generate angle modulation, the amplitude of the modulated carrier is held constant and either the 
+phase or the time derivative of the phase of the carrier is varied linearly with the message signal 𝒎(𝒕). 
+These lead to phase modulation (PM) or frequency modulation (FM), respectively.
+
+The most efficient technique for demodulating angle modulated signals is the phase-locked loop (PLL). 
+The PLL is ubiquitous in modern communication systems. Both analog systems and, 
+as we will see later, digital systems make extensive use of PLLs. 
+Because of the importance of the PLL, we give considerable emphasis to it in this chapter.
+
+4.1 PHASE AND FREQUENCY MODULATION DEFINED
+  𝑥𝑐(𝑡) = 𝐴𝑐 cos[2𝜋𝑓𝑐𝑡 + 𝜙(𝑡)]
+  𝜃𝑖(𝑡) = 2𝜋𝑓𝑐𝑡 + 𝜙(𝑡)
+  
+  phase modulation: 𝜙(𝑡) = 𝑘𝑝𝑚(𝑡)
+  frequency modulation: 𝜙(𝑡) = 𝑘𝑓 ∫ 𝑚(𝛼)𝑑𝛼 + 𝜙0
+  
+  where 𝑘𝑓 = 2𝜋𝑓𝑑: 
+  (𝑓𝑑 is known as the frequency-deviation constant)
+  
+  Phase modulator output is: 𝑥𝑐(𝑡) = 𝐴𝑐 cos[2𝜋𝑓𝑐𝑡 + 𝑘𝑝𝑚(𝑡)]
+  Frequency modulator output is: 𝑥𝑐(𝑡) = 𝐴𝑐 cos [2𝜋𝑓𝑐𝑡 + 2𝜋𝑓𝑑 ∫ 𝑚(𝛼)𝑑𝛼]
+  
+4.1.1 Narrowband Angle Modulation
+    𝑥𝑐(𝑡) = Re(𝐴𝑐𝑒𝑗𝜙(𝑡)𝑒𝑗2𝜋𝑓𝑐𝑡)
+  Modulated carrier can be approximated as:    
+    𝑥𝑐(𝑡) ≅ Re[𝐴𝑐𝑒𝑗2𝜋𝑓𝑐𝑡 + 𝐴𝑐𝜙(𝑡)𝑗𝑒𝑗2𝜋𝑓𝑐𝑡]
+  Taking the real part:
+    𝑥𝑐 (𝑡) ≅ 𝐴𝑐 cos(2𝜋𝑓𝑐 𝑡) − 𝐴𝑐 𝜙(𝑡) sin(2𝜋𝑓𝑐 𝑡)
+
+4.1.2 Spectrum of an Angle-Modulated Signal
+  In order to compute the spectrum of an angle-modulated signal with a sinusoidal message signal, we assume that
+    𝜙(𝑡) = 𝛽 sin(2𝜋𝑓𝑚𝑡)  
+  The parameter 𝛽 is known as the modulation index and is the maximum phase deviation for
+  both FM and PM. The signal
+    𝑥𝑐(𝑡) = 𝐴𝑐 cos[2𝜋𝑓𝑐𝑡 + 𝛽 sin(2𝜋𝑓𝑚𝑡)]
+ => 𝑥𝑐(𝑡) = Re[𝑥̃𝑐(𝑡)𝑒𝑗2𝜋𝑓𝑐𝑡]
+ 
+ The integral is a function of 𝑛 and 𝛽 and is known as the Bessel function 
+ of the first kind of order 𝑛 and argument 𝛽
+   𝑥𝑐(𝑡)= 𝐴𝑐 ∑ 𝐽𝑛(𝛽)cos[2𝜋(𝑓𝑐 +𝑛𝑓𝑚)𝑡]
+ definition of 𝐽𝑛(𝛽) it can be determined that
+   𝐽−𝑛(𝛽) = 𝐽𝑛(𝛽), 𝑛 even 
+   𝐽−𝑛(𝛽) = −𝐽𝑛(𝛽), 𝑛 odd
+   
+4.1.3 Power in an Angle-Modulated Signal
+  ⟨𝑥2𝑐(𝑡)⟩ = 𝐴2𝑐⟨cos2[2𝜋𝑓𝑐𝑡 + 𝜙(𝑡)]⟩
+=>⟨𝑥𝑐^2(𝑡)⟩ = (𝐴𝑐^2)/2
+
+4.1.4 Bandwidth of Angle-Modulated Signals
+  𝐽𝑛(𝛽) ≈ 𝛽𝑛/(2^𝑛)𝑛!
+  For fixed 𝛽, lim 𝐽𝑛(𝛽) = 0, 𝑛→∞
+  The power ratio 𝑃𝑟 is defined as: 𝑃𝑟 = 𝐽02(𝛽) + 2∑𝐽𝑛2(𝛽), 𝑘~𝑛=1
+  Resulting bandwidth is 𝐵 = 2𝑘𝑓𝑚
+  => 𝐵 ≅ 2(𝛽 + 1)𝑓𝑚
+  Bandwidth results if the deviation ratio 𝐷 is defined as: 𝐷 = peak frequency deviation / bandwidth of 𝑚(𝑡)
+  => 𝐷 = 𝑓𝑑 (max | 𝑚(𝑡)|) / 𝑊
+  Replacing 𝛽 by 𝐷 and replacing 𝑓𝑚 by 𝑊: 
+  => 𝐵 = 2(𝐷 + 1)𝑊
+  
+4.1.5 Narrowband-to-Wideband Conversion
+  Narrowband FM signal: 
+  Carrier frequency = fc1
+  Peak frequency deviation = fd1 
+  Deviation ratio = D1
+  >>
+  Wideband FM signal:
+  Carrier frequency = fc2 = nfc1
+  Peak frequency deviation = fd2 = nfd1 
+  Deviation ratio = D2 = nD1
+  
+  Input of a frequency multiplier is:     𝑥(𝑡) = 𝐴𝑐 cos[2𝜋𝑓0𝑡 + 𝜙(𝑡)]
+  Output of the frequency multiplier is:  𝑦(𝑡) = 𝐴𝑐 cos[2𝜋𝑛𝑓0𝑡 + 𝑛𝜙(𝑡)]
+  Assuming that the output of the local oscillator is: 𝑒LO(𝑡) = 2 cos(2𝜋𝑓LO𝑡)
+=>𝑓𝑐 =𝑛𝑓0 +𝑓LO or 𝑓𝑐 =𝑛𝑓0 −𝑓LO
+=>𝑥𝑐(𝑡) = 𝐴𝑐 cos[2𝜋𝑓𝑐𝑡 + 𝑛𝜙(𝑡)] 
+
+4.2 DEMODULATION OF ANGLE-MODULATED SIGNALS  
+  circuits are known as frequency discriminators (demodulator)
+  input to an ideal discriminator is the angle-modulated signal: 𝑥𝑟(𝑡) = 𝐴𝑐 cos[2𝜋𝑓𝑐𝑡 + 𝜙(𝑡)]
+  output of the ideal discriminator is: 𝑦𝐷(𝑡)= 1/2𝜋 K𝐷 𝑑𝜙/𝑑𝑡
+  
+  PM discriminator as: 𝑦𝐷(𝑡) = 𝐾𝐷𝑘𝑝𝑚(𝑡)
+  output of the envelope detector is: 𝑦𝐷 (𝑡)=𝐴𝑐 𝑑𝜙/𝑑𝑡 = 2𝜋𝐴𝑐 𝑓𝑑𝑚(𝑡) 
+  
+  Assuming transfer function is:
+  𝐻(𝑓) = 𝑅/(𝑅 + 1∕𝑗2𝜋𝑓𝐶) = 𝑗2𝜋𝑓𝑅𝐶 / (1 + 𝑗2𝜋𝑓𝑅𝐶)
+  Transfer function can be approximated by: 𝐻(𝑓) = 𝑗2𝜋𝑓𝑅𝐶
+  Then: 𝐾𝐷 = 2𝜋𝐴𝑐𝑅𝐶
+  
+4.3 FEEDBACK DEMODULATORS: THE PHASE-LOCKED LOOP
+Phase-locked loops are widely used in today’s communication systems, 
+not only for demodulation of angle- modulated signals but also for carrier and symbol synchronization.
+
+4.3.1 Phase-Locked Loops for FM and PM Demodulation
+  A block diagram of a PLL is shown in Figure 4.18. The basic PLL contains four basic elements. These are
+  1. Phase detector
+  2. Loop filter
+  3. Loop amplifier (assume 𝜇 = 1)
+  4. Voltage-controlled oscillator (VCO).
+  
+  Assume that the input signal is given by: 𝑥𝑟(𝑡) = 𝐴𝑐 cos[2𝜋𝑓𝑐𝑡 + 𝜙(𝑡)]
+  VCO output signal is given by: 𝑒0(𝑡) = 𝐴𝑣 sin[2𝜋𝑓𝑐𝑡 + 𝜃(𝑡)]
+  
+  A VCO is essentially a frequency modulator in which the frequency deviation of the output, 
+  𝑑𝜃∕𝑑𝑡, is proportional to the VCO input signal.
+  𝑑𝜃/𝑑𝑡 = 𝐾𝑣 𝑒𝑣(𝑡) rad∕𝑠 
+  𝜃(𝑡) = 𝐾𝑣 ∫ 𝑒𝑣(𝛼)𝑑𝛼 , 𝐾𝑣 is known as the VCO constan
+  loop gain 𝐾𝑡 = 1/2 𝐴𝑣𝐴𝑐𝐾𝑑𝐾𝑣, input signal amplitude 𝐴𝑣
+  
+4.4 INTERFERENCE IN ANGLE MODULATION
+  Input to the discriminator is assumed to have the form: 
+  𝑥𝑡(𝑡) = 𝐴𝑐 cos(2𝜋𝑓𝑐𝑡) + 𝐴𝑖 cos[2𝜋(𝑓𝑐 + 𝑓𝑖)𝑡]
+       = 𝐴𝑐 cos(2𝜋𝑓𝑖𝑡) + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡) cos(2𝜋𝑓𝑐𝑡) − 𝐴𝑖 sin(2𝜋𝑓𝑖) sin(2𝜋𝑓𝑐𝑡)
+  Preceding expression in magnitude and phase form gives: 
+  𝑥𝑟(𝑡) = 𝑅(𝑡) cos[2𝜋𝑓𝑐𝑡 + 𝜓(𝑡)]     
+  
+  Amplitude 𝑅(𝑡) is given by: 
+    𝑅(𝑡) =√([𝐴𝑐 + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)]^2 + [𝐴𝑖 sin(2𝜋𝑓𝑖𝑡)]^2)
+  Phase deviation 𝜓(𝑡) is given by:
+    𝜓(𝑡) = tan−1(𝐴𝑖 sin(2𝜋𝑓𝑖𝑡)/[𝐴𝑐 + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)] )
+  If 𝐴𝑐 ≫ 𝐴𝑖, 𝑅(𝑡) = 𝐴𝑐 + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)
+  and 𝜓(𝑡) = 𝐴𝑖/𝐴𝑐 + 𝐴𝑖 cos(2𝜋𝑓𝑖𝑡)
+  𝑦𝐷(𝑡)=𝐾𝐷 𝐴𝑖/𝐴𝑐 𝑓𝑖cos(2𝜋𝑓𝑡)
+  
