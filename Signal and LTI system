@@ -38,8 +38,8 @@ properties of the unit impulse function that can be proved from the definition  
       |𝑋(𝑓)|2 =𝑅2 +𝐼2 and tan𝜃(𝑓)=𝐼∕𝑅
 2.4.2 Symmetry Properties:𝑥(𝑡) = 𝑥(−𝑡), that is, if 𝑥(𝑡) is even, then 𝑥(𝑡)sin(2𝜋𝑓𝑡) is odd in (2.66) and Im 𝑋(𝑓) = 0. Furthermore, Re 𝑋(𝑓) is an even function of 𝑓 because cosine is an even function. Thus, the Fourier transform of a real, even function is real and even.
 2.4.3 Energy Spectral Density: 
-      E = ∫ 𝑋(𝑓)𝑋∗ (𝑓) 𝑑𝑓
-      |𝑋(𝑓)|2 has the units of energy density, 𝐺(𝑓 ) ≜ |𝑋(𝑓 )|2
+      𝐸 =∫ |𝑥(𝑡)|^2 𝑑𝑡=∫ |𝑋(𝑓)|^2 𝑑𝑓
+      |𝑋(𝑓)|^2 has the units of energy density, 𝐺(𝑓 ) ≜ |𝑋(𝑓 )|^2 𝑑𝑓
 2.4.4 Convolution: 𝑥(𝑡) = 𝑥1(𝑡) ∗ 𝑥2 (𝑡) = ∫ 𝑥1(𝜆)𝑥2(𝑡 − 𝜆) 𝑑𝜆
       𝑥1(𝑡) = 𝑒−𝛼𝑡𝑢(𝑡) and 𝑥2 (𝑡) = 𝑒−𝛽𝑡𝑢(𝑡), 𝛼 > 𝛽 > 0
    => 𝑥(𝑡) = 𝑥1(𝑡) ∗ 𝑥2(𝑡) = ∫ 𝑒−𝛼𝜆𝑢(𝜆)𝑒−𝛽(𝑡−𝜆)𝑢(𝑡 − 𝜆)𝑑𝜆
@@ -47,4 +47,93 @@ properties of the unit impulse function that can be proved from the definition  
    => 𝑢(𝜆)𝑢(𝑡−𝜆)= ⎨1, 0<𝜆<𝑡
                  ⎩0, 𝜆>𝑡
 
+2.4.5 Transform Theorems: Proofs and Applications
+      Superposition Theorem   
+      Time-Delay Theorem
+      Scale-Change Theorem
+      Duality Theorem
+      Frequency-Translation Theorem
+      Modulation Theorem
+      Differentiation Theorem
+      Integration Theorem
+      Convolution Theorem
+      Multiplication Theorem
+      
+2.5 POWER SPECTRAL DENSITY AND CORRELATION
+For power signals, it is meaningful to speak in terms of power spectral density. 
+Define the power spectral density 𝑆(𝑓) of a signal 𝑥(𝑡) as a real, even,nonnegative function of frequency, which gives total average power per ohm when integrated;
+that is,
+      𝑃=∫𝑆(𝑓)𝑑𝑓= <𝑥^2(𝑡)> 
+      
+2.5.1 The Time-Average Autocorrelation Function
+      𝜙(𝜏) = 𝑥(𝜏) ∗ 𝑥(−𝜏) = ∫𝑥(𝜆)𝑥(𝜆 + 𝜏)𝑑𝜆
+           = lim ∫ 𝑥(𝜆)𝑥(𝜆 + 𝜏) 𝑑𝜆 (energy signal)
+           
+      𝑅(𝜏) = ⟨𝑥(𝑡)𝑥(𝑡 + 𝜏)⟩
+           ≜ lim 1/2T ∫ 𝑥(𝑡)𝑥(𝑡 + 𝜏) 𝑑𝑡 (power signal) 
+           
+2.5.2 Properties of R (𝜏)
+      The time-average autocorrelation function has several useful properties, which are listed
+      below:
+      1. 𝑅(0) = ⟨𝑥2 (𝑡)⟩ ≥ |𝑅(𝜏)|, for all 𝜏; that is, an absolute maximum of 𝑅(𝜏) exists at 𝜏 = 0.
+      2. 𝑅 (−𝜏) = ⟨𝑥(𝑡)𝑥(𝑡 − 𝜏)⟩ = 𝑅 (𝜏); that is, 𝑅(𝜏) is even.
+      3. lim|𝜏|→∞ 𝑅 (𝜏) = ⟨𝑥(𝑡)⟩2 if 𝑥(𝑡) does not contain periodic components.
+      4. If 𝑥(𝑡) is periodic in 𝑡 with period 𝑇0, then 𝑅 (𝜏) is periodic in 𝜏 with period 𝑇0.
+      5. The time-average autocorrelation function of any power signal has a Fourier transform that is nonnegative.
 
+2.6 SIGNALS AND LINEAR SYSTEMS
+      𝑦(𝑡) = H[𝑥(𝑡)]
+where H[⋅] is the operator that produces the output 𝑦(𝑡) from the input 𝑥(𝑡).
+
+2.6.1 Definition of a Linear Time-Invariant System
+      𝑦(𝑡) = H[𝛼1𝑥1(t) + (𝛼2𝑥2(𝑡)] = a1H[𝑥1(𝑡)] + a2H[𝑥2(𝑡)]   
+
+      If the system is time-invariant, or fixed, 
+      𝑦(𝑡 − 𝑡0) = H[𝑥(𝑡 − 𝑡0)]
+        
+2.6.2 Impulse Response and the Superposition Integral        
+      The impulse response h(𝑡) of an LTI system is defined to be the response of the system to an impulse applied 
+      at 𝑡 = 0, that is:
+      h(𝑡) ≜ H[𝛿(𝑡)]  
+      
+      𝑥(𝑡) = ∫ 𝑥(𝜆)𝛿(𝑡 − 𝜆) 𝑑𝜆
+      𝑦(𝑡) = ∫ 𝑥(𝜆)h(𝑡 − 𝜆) 𝑑𝜆  
+        
+2.6.3 Stability  
+      A fixed, linear system is bounded-input, bounded-output (BIBO) stable
+      ∫ |h(𝑡)| 𝑑𝑡 < ∞
+        
+ 2.6.4 Transfer (Frequency Response) Function
+      𝑌(𝑓) = 𝐻(𝑓)𝑋(𝑓)
+      𝐻(𝑓) = F{h(𝑡)} = ∫ h(𝑡)𝑒^−𝑗2𝜋𝑓𝑡 𝑑𝑡
+      𝑦(𝑡) = ∫ 𝑋(𝑓)𝐻(𝑓)𝑒^𝑗2𝜋𝑓𝑡 𝑑𝑓
+      
+ 2.6.5 Causality      
+      h(𝑡) = 0, 𝑡 < 0
+      ∫ |h(𝑡)|^2 𝑑𝑡 = ∫ |𝐻 (𝑓)|^2 𝑑𝑓 < ∞
+      𝐻(𝑓) = |𝐻(𝑓)|exp^[j⟋_𝐻(𝑓)] 
+      
+2.6.6 Symmetry Properties of H (𝑓)      
+      |𝐻(𝑓)| = |𝐻(−𝑓)|
+      ⟋𝐻(𝑓) = −⟋𝐻(−𝑓)
+      
+2.6.7 Input-Output Relationships for Spectral Densities      
+      𝐺𝑦(𝑓) = |𝐻(𝑓)|^2 𝐺𝑥(𝑓)  
+      𝑆𝑦(𝑓) = |𝐻(𝑓)|^2 𝑆𝑥(𝑓)
+      
+ 2.8 THE HILBERT TRANSFORM
+      𝐻(𝑓) = −𝑗 sgn 𝑓
+      𝑥̂(𝑡) = F(−1)[−𝑗 sgn (𝑓)𝑋(𝑓)]
+      = h(𝑡) ∗ 𝑥(𝑡)
+      
+ 2.8.4 Complex Envelope Representation of Bandpass Signals    
+      𝑥𝑝(𝑡) = 𝑥̃(𝑡)𝑒^𝑗2𝜋𝑓0𝑡
+      𝑥̃(𝑡) = 𝑥𝑝(𝑡)𝑒^−𝑗2𝜋𝑓0𝑡
+      
+ 2.8.5 Complex Envelope Representation of Bandpass Systems
+      h(𝑡) = Re ̃h(𝑡)𝑒^𝑗2𝜋𝑓0𝑡
+      𝑦(𝑡) = 𝑥(𝑡) ∗ h(𝑡) = ∫ h(𝜆)𝑥(𝑡 − 𝜆) 𝑑𝜆
+      
+      By Euler’s theorem, we can represent h(𝑡) and 𝑥(𝑡) as
+      h(𝑡) = 1̃h(𝑡)𝑒𝑗2𝜋𝑓0𝑡 + c.c.
+      𝑥(𝑡) = 1𝑥̃(𝑡)𝑒𝑗2𝜋𝑓0𝑡 + c.c.
