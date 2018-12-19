@@ -2,10 +2,10 @@
 
 Communication systems such a the telephone, radio, television, and the Internet have inarguably been some of the greatest engineering achievements of the past century. This class will provide an interaction to the engineering principles underlying these systems, with an focus on understanding different types of modulation and the impact of bandwidth and noise.
 
-I: SIGNAL AND LINEAR SYSTEM ANALYSIS
-   Signal Model
-   Signal Classification
-   Fourier Transform
+I: SIGNAL AND LINEAR SYSTEM ANALYSIS . 
+   Signal Model . 
+   Signal Classification . 
+   Fourier Transform . 
    Power Spectral Density
    Time-Average Autocorrelation Function
    LTI-Linear Time Invariant System
